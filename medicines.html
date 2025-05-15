@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Medicines</title>
+  <link rel="stylesheet" href="medicine.css"/>
+</head>
+<body>
+
+  <!-- Top Dashboard Header via iframe -->
+  <iframe src="dashboard.html" style="width: 100%; height: 130px; border: none;" title="Dashboard Header"></iframe>
+
+  <!-- Main Layout -->
+  <div class="main-container">
+    
+    <!-- Left Sidebar -->
+    <aside class="sidebar">
+      <h3>Filter by Disease</h3>
+      <select id="diseaseSelect" onchange="filterCardsByDropdown()">
+        <option value="">-- All Diseases --</option>
+        <option value="Cold & Flu">Cold & Flu</option>
+        <option value="Headache">Headache</option>
+        <option value="Diabetes">Diabetes</option>
+        <option value="Blood Pressure">Blood Pressure</option>
+        <option value="Stomach Pain">Stomach Pain</option>
+        <option value="Allergy">Allergy</option>
+      </select>
+    </aside>
+
+    <!-- Right Cards Display -->
+    <section class="card-section" id="medicineCards">
+      <!-- Cards populated by JS -->
+    </section>
+
+  </div>
+
+  <script src="medicines.js"></script>
+</body>
+</html>

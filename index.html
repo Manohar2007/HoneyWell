@@ -1,0 +1,126 @@
+<!-- main_page.html -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Main Page</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- Fixed Dashboard -->
+    <iframe src="dashboard.html" class="dashboard-frame"></iframe>
+
+    <!-- Main Content -->
+    <div class="content">
+        <!-- Banner -->
+        <div class="banner-section">
+            <img src="images/left_green.png" alt="Left Icon" class="banner-img">
+            <div class="banner-center">
+                <h3 class="banner-text">Medicines and Essentials</h3>
+                <input type="text" class="search-bar" placeholder="Search for medicines, health products...">
+            </div>
+            <img src="images/right_green.png" alt="Right Icon" class="banner-img">
+        </div>
+
+        <!-- Button Section -->
+        <div class="button-section">
+            <button class="tablets" onclick="window.location.href='medicines.html';"
+                onmouseover="showContent('medicines', this)" onmouseout="hideContent('medicines')">
+                <img src="images/tablets.png" alt="medicines">
+                <span>Medicines</span>
+            </button>
+            <button class="wellness" onclick="window.location.href='wellness.html';"
+                onmouseover="showContent('wellness',this)" onmouseout="hideContent('wellness')">
+                <img src=" images/sethescope.png" alt="wellness">
+                <span>Wellness</span>
+            </button>
+            <button class="devices" onclick="window.location.href='devices.html'" onmouseover="showContent('devices',this)" onmouseout="hideContent('devices')">
+                <img src="images/faid.png" alt="Equipment">
+                <span>Equipment</span>
+            </button>
+
+            <button class="availability-btn" onclick="window.location.href='availability.html'" onmouseover="showContent('availability-btn',this)"
+                onmouseout="hideContent('availability-btn')">
+                <img src="images/availability.png" alt="Availability">
+                <span>Availability</span>
+            </button>
+
+            <button class="tips" onlcick="window.location.href='tips.html'" onmouseover="showContent('tips',this)" onmouseout="hideContent('tips')">
+                <img src="images/lab_tests.png" alt="Lab Tests">
+                <span>Tips</span>
+            </button>
+
+        </div>
+        <!-- Content Sections (Initially hidden) -->
+        <div id="medicines" class="tab-content">
+            <h2>Medicines</h2>
+            <p>Explore our wide range of quality medicines, including over-the-counter drugs, prescribed medications,
+                and essential vitamins. Whether you're looking for pain relief, cold and flu remedies, or daily
+                supplements, we've got you covered.</p>
+        </div>
+
+        <div id="wellness" class="tab-content">
+            <h2>Wellness</h2>
+            <p>Shop wellness products designed to support your overall health. From immunity-boosting supplements to
+                mental health aids, we offer a variety of items to help you maintain a healthy lifestyle and well-being.
+            </p>
+        </div>
+
+        <div id="devices" class="tab-content">
+            <h2>Devices</h2>
+            <p>Buy healthcare devices like thermometers, blood pressure monitors, glucometers, and more. These devices
+                will help you monitor your health from the comfort of your home and provide accurate readings for better
+                health management.</p>
+        </div>
+
+        <div id="availability-btn" class="tab-content">
+            <h2>Offers</h2>
+            <p>Check out our latest discounts and bundle offers! Save big on top-rated health products, and take
+                advantage of special promotions on wellness kits, healthcare devices, and more. Limited time only, so
+                hurry!</p>
+        </div>
+
+        <div id="tips" class="tab-content">
+            <h2>Health Tips</h2>
+            <p>Read daily health tips to improve your quality of life. From dietary advice and exercise routines to
+                mental health guidance and self-care practices, we provide tips to help you live a healthier, more
+                balanced life.</p>
+        </div>
+    </div>
+    <script>
+        function showContent(id, button) {
+            // Hide all content sections
+            const allTabs = document.querySelectorAll('.tab-content');
+            allTabs.forEach(tab => tab.classList.remove('show')); // Remove 'show' class from all
+
+            // Get the content box
+            const tab = document.getElementById(id);
+            if (tab) {
+                tab.classList.add('show'); // Add 'show' class to display the content
+
+                // Get the button position
+                const buttonRect = button.getBoundingClientRect();
+
+                // Position the content box near the button
+                tab.style.top = `${buttonRect.bottom + window.scrollY + 10}px`; // Place content below button
+                tab.style.left = `${buttonRect.left + window.scrollX}px`; // Align content with the left side of the button
+            }
+        }
+
+        function hideContent(id) {
+            const tab = document.getElementById(id);
+            if (tab) {
+                tab.classList.remove('show'); // Hide the content when mouse leaves
+            }
+        }
+    </script>
+
+
+
+
+</body>
+
+</html>
